@@ -1,5 +1,5 @@
 # 💫 About Me:
-I am a 3rd-year B.Tech student in Computer Science and Engineering at Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar. I am actively building my skills in Data Science, Machine Learning, Java, and Python, with a strong focus on hands-on, project-based learning. I enjoy developing practical models and applications that solve real-world problems and am continuously exploring new technologies to strengthen my technical foundation and problem-solving abilities.
+I am a final B.Tech student in Computer Science and Engineering at Kalinga Institute of Industrial Technology (KIIT), Bhubaneswar. I am actively building my skills in Data Science, Machine Learning, Java, and Python, with a strong focus on hands-on, project-based learning. I enjoy developing practical models and applications that solve real-world problems and am continuously exploring new technologies to strengthen my technical foundation and problem-solving abilities.
 
 
 ## 🌐 Socials:
