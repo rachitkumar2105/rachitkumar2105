@@ -5,6 +5,8 @@ Final-year B.Tech CSE student at KIIT University, Bhubaneswar (Class of 2027). I
 **What I've actually shipped and verified:**
 - 🔧 [**APIWatch**](https://github.com/rachitkumar2105/APIWatch) — FastAPI task-management REST API. 97.35% test coverage, CI/CD via GitHub Actions, rate limiting, Prometheus + Grafana observability, p95 latency 9.94ms (measured, not estimated).
 - 🤖 [**AI Resume Screening Assistant**](https://github.com/rachitkumar2105/AI-Resume-Screening-Assistant) — Full-stack resume screening tool (FastAPI + React). Custom PyTorch classifier over TF-IDF features, spaCy entity extraction. 67.4% macro accuracy on a real 2,362-resume, 21-class dataset — with documented failure analysis, not a cherry-picked number.
+- 🥦 [**Fresh ScanX**](https://github.com/rachitkumar2105/Fresh-Scan-X) — CNN-based produce freshness classifier using EfficientNet-B0. 92% accuracy on a 16,000+ image dataset.
+- 💬 [**SupportGPT**](https://github.com/rachitkumar2105/SupportGPT) — RAG-based multi-document Q&A tool built with FastAPI, retrieving answers across multiple PDFs.
 
 📫 [LinkedIn](https://linkedin.com/in/rachit-kumar-singh-79429827b) · rachitkumar2105@gmail.com
 
