@@ -20,5 +20,3 @@ Final-year B.Tech CSE student at KIIT University, Bhubaneswar (Class of 2027). I
 ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white)
 ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=rachitkumar2105&show_icons=true&theme=dark&hide_border=true&count_private=true)
