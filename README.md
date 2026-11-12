@@ -2,6 +2,8 @@
 
 # Rachit Kumar Singh
 
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3500&pause=1200&color=7AA2F7&center=true&vCenter=true&width=620&lines=Distributed+systems+in+Java+21;Vector+search+from+first+principles;Backend+APIs+with+FastAPI+%2B+PostgreSQL;Measured+under+failure%2C+reported+honestly" alt="Distributed systems in Java 21, vector search from first principles, backend APIs" />
+
 **B.Tech CSE '27 @ KIIT (8.31 CGPA) • Ex-SWE Intern @ Accenture • Distributed Systems, Backend & AI Engineering • Seeking Jan–Jun 2027 SDE Internships**
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-rachitkumarsingh.online-0A0A0A?style=for-the-badge&logo=googlechrome&logoColor=white)](https://rachitkumarsingh.online)
@@ -26,6 +28,30 @@ I care about correctness under failure, test coverage that means something, and 
 | **VectorForge** | Vector database from first principles, no ANN library in the engine | HNSW: **976 queries/s at 0.954 recall@10** on 200k SIFT1M vectors (**42.8x** faster than exact search)<br>int8 scalar quantization: **4x** storage cut at 0.9766 recall@10<br>100/100 crash-recovery kills survived via CRC32 WAL<br>Benchmarked against FAISS: 9.5x gap measured and explained<br>206 engine tests (95.36% coverage) + 30 frontend tests | Python, NumPy, FastAPI, Next.js, React, TypeScript | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/rachitkumar2105/vectorforge) [![Live](https://img.shields.io/badge/Live%20Demo-000000?style=flat-square&logo=vercel&logoColor=white)](https://vectorforge-olive.vercel.app) |
 | **APIWatch** | Production-style task-management REST API with observability | Eliminated **2 race conditions** (duplicate idempotent writes, lost updates) via Idempotency-Key checks and optimistic concurrency<br>**51 tests at 98.34% coverage** behind an 85% CI gate<br>Prometheus + Grafana dashboard, liveness/readiness probes | Python, FastAPI, SQLAlchemy, PostgreSQL 16, SQLite, Prometheus, Grafana | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/rachitkumar2105/APIWatch) |
 | **AI Resume Screening Assistant** | Full-stack resume classifier and JD matcher | 2-layer PyTorch NN over 2,362 real resumes (1,890/472 split)<br>Test accuracy **62.9% → 67.4%** (macro F1 66.7%)<br>Confidence-calibrated "UNCERTAIN" abstention on ambiguous input | Python, PyTorch, Scikit-learn, spaCy NER, TF-IDF, FastAPI, React | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/rachitkumar2105/AI-Resume-Screening-Assistant) |
+
+### How LogForge acknowledges a write (`acks=all`)
+
+```mermaid
+flowchart LR
+    P[Producer] -->|ProduceRequest| L[Leader broker<br/>append batch + CRC-32C]
+    F1[Follower 1<br/>append fetched batch] -->|FetchRequest| L
+    F2[Follower 2<br/>append fetched batch] -->|FetchRequest| L
+    L -->|all ISR caught up:<br/>advance high watermark| A[Ack to producer]
+    C[Controller<br/>heartbeats + fencing] -.->|leader fails:<br/>elect from ISR| F1
+```
+
+<details>
+<summary><b>Engineering notes: what these systems deliberately do not do (yet)</b></summary>
+
+<br>
+
+- **LogForge:** single fixed controller (no Raft), no TLS on the binary protocol, no zero-copy `sendfile`, compression or transactions. Benchmarks vs Apache Kafka 3.9: faster in 2 configurations, slower in 2, the rest within run-to-run noise.
+- **VectorForge:** 9.5x slower than FAISS at matched recall on SIFT1M (Python loops vs optimised C++). Crash tests use process kills, not power loss.
+- **APIWatch:** single instance; load test was sequential, not concurrent.
+
+Knowing where a system stops is part of building it.
+
+</details>
 
 ## Tech Stack
 
@@ -67,11 +93,10 @@ I care about correctness under failure, test coverage that means something, and 
 ![FAISS](https://img.shields.io/badge/FAISS-0467DF?style=for-the-badge)
 ![spaCy](https://img.shields.io/badge/spaCy-09A3D5?style=for-the-badge&logo=spacy&logoColor=white)
 
-## GitHub Stats
+## Where My Commits Go
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=rachitkumar2105&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub stats" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=rachitkumar2105&layout=compact&langs_count=6&theme=tokyonight&hide_border=true&hide=html,css,jupyter%20notebook" alt="Top languages" />
+  <img height="180" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=rachitkumar2105&theme=tokyonight" alt="Top languages by commit" />
 </p>
 
 ## Problem Solving
